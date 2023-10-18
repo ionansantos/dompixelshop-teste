@@ -19,11 +19,22 @@ class ProductRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name' => 'required',
-            'amount' => 'required',
+            'name' => 'required|string',
+            'price' => 'required|integer',
+            'quantity' => 'required|integer',
         ];
     }
+
+    public function messages()
+{
+    return [
+        'name.required' => 'O campo nome é obrigatório.',
+        'price.required' => 'O campo preço é obrigatório.',
+        'quantity.required' => 'O campo quantidade é obrigatório.',
+    ];
+}
+
 }

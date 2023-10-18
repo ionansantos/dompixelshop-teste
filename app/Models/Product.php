@@ -8,10 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $table = 'product';
     protected $fillable = [
         'name',
         'description',
         'price',
-        'amount',
+        'quantity',
     ];
+
+    public function amount()
+    {
+        return $this->hasOne(Amount::class);
+    }
+
 }
