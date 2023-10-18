@@ -15,8 +15,12 @@ class ProductController extends Controller
     {}
 
 
-    public function index(Request $request) {
-        return "asdadssa";
+    public function index(Request $request)
+    {
+
+        $products = $this->service->findAll();
+        return response()->json(["data"=>$products], Response::HTTP_OK);
+
     }
 
     public function store(ProductRequest $request) {
