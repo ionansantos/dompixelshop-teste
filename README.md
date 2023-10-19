@@ -95,10 +95,13 @@ npm run build
 |id|name|description|price|quantity|
 | -------- |-------- |-------- |-------- |-------- |
 
-### Amount:
+### Usuários: 
 
 |id|product_id|amount|
-| --------|-------- |
+| -------- |-------- |--
+
+
+... 
 
 
 ## Resolvendo Problemas :exclamation:
