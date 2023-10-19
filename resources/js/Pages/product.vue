@@ -101,7 +101,7 @@ export default defineComponent({
 
         const SaveProduct = (productData) => {
             if (productData.id) {
-                axiosApi.post("/product/update/" + productData.id)
+                axiosApi.post("/product/update/" + productData.id, productData)
                     .then(response => {
                         toaster.success('Produto atualizado com sucesso!');
 

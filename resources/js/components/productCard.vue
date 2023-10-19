@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="modalOpen" class="modal">
-            <div class="modal-dialog modal-sm">
+            <div class="container col-md-6 col-12" role="dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">{{ editingProductId ? 'Editar Produto' : 'Cadastro de Produto' }}</h5>
@@ -25,13 +25,13 @@
                                 <label for="preco" class="form-label">Preço do Produto <span
                                         class="text-danger">*</span></label>
                                 <input name="quantity" class="form-control" id="preco"
-                                    placeholder="Digite o preço do produto" v-model="productpPrice">
+                                    placeholder="Digite o preço do produto" v-model="productpPrice" @input="formatReais">
                                 <p class="text-danger">{{ erroInput ? erroInput['price'][0] : '' }}</p>
                             </div>
                             <div class="mb-3">
                                 <label for="quantidade" class="form-label">Quantidade em Estoque <span
                                         class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="quantidade"
+                                <input type="number" class="form-control" id="quantidade"
                                     placeholder="Digite a quantidade em estoque" v-model="productQuantity">
                                 <p class="text-danger">{{ erroInput ? erroInput['quantity'][0] : '' }}</p>
                             </div>
@@ -112,17 +112,28 @@ export default {
         }
     },
     methods: {
+        formatReais() {
+            // Remove caracteres não numéricos
+            let numericValue = this.productpPrice.replace(/\D/g, '');
+
+            // Formata o valor em reais (R$)
+            if (numericValue.length > 0) {
+                this.productpPrice = 'R$' + (parseFloat(numericValue) / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            }
+        },
         closeModal() {
             this.$emit('close-modal');
             this.clearFields();
         },
 
         saveProduct() {
+
+            const numericValue = this.productpPrice.replace(/[^\d,]/g, '').replace(',', '.');
             // Crie um objeto para armazenar os dados do produto
             const productData = {
                 name: this.productName,
                 description: this.productDescription,
-                price: this.productpPrice,
+                price: numericValue,
                 quantity: this.productQuantity
             };
 

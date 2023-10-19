@@ -29,7 +29,6 @@ class ProductService {
 
     public function updateProduct($request, $id) {
         $product = $this->productRepository->findOne($id);
-
         if (!$product) {
             throw new \Exception('Produto não encontrado');
         }

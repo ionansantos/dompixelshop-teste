@@ -33,6 +33,7 @@ class ProductRequest extends FormRequest
     return [
         'name.required' => 'O campo nome é obrigatório.',
         'price.required' => 'O campo preço é obrigatório.',
+        'price.numeric' => 'O campo preço precisa ser numérico.',
         'quantity.required' => 'O campo quantidade é obrigatório.',
     ];
 }
