@@ -71,6 +71,15 @@ docker compose up -d --build  " se for o caso use sudo "
 docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
 ... 
 
+php artisan key:generate
+```
+
+```
+para instalar as depedencias do npm
+
+npm install
+npm run build
+
 ```
 ## Iniciando banco de dados
 ```
