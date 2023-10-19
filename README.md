@@ -52,11 +52,17 @@ No terminal, clone o projeto:
 ```
 git clone https://github.com/ionansantos/dompixelshop-teste.git
 ```
+```
 cd dompizelshop
+```
 
+```
 cp .env .env_copy
+```
 
+```
 docker compose up -d --build  " se for o caso use sudo "
+```
 
 ... 
  
