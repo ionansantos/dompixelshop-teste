@@ -1,8 +1,8 @@
-<h1>DomPIxelShop</h1> 
+<h1>DomPixelShop</h1> 
 
 
 
-> Status do Projeto: :heavy_check_mark: :warning: (desenvolvimento)
+> Status do Projeto: :heavy_check_mark: :warning: (finalizado)
 
 
 ## Descrição do projeto 
@@ -59,6 +59,7 @@ cd dompixelshop
 ```
 cp .env .env_copy
 ```
+
 ```
 docker compose exec app composer install
 ```
@@ -75,8 +76,9 @@ php artisan key:generate
 ```
 
 ```
-para instalar as depedencias do npm
-
+```
+### para instalar as depedencias do npm
+```
 npm install
 npm run build
 
@@ -86,10 +88,8 @@ npm run build
  php artisan migrate
 ```
 
- 
 ```
-
-
+```
 ## os dados da aplicação são salvos em duas tabelas
 
 ### Product: 
