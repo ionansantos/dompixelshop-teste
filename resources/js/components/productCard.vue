@@ -12,26 +12,25 @@
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome do Produto</label>
                                 <input type="text" class="form-control" id="nome" placeholder="Digite o nome do produto"
-                                    v-model="productData.data.name">
+                                    v-model="productName">
                             </div>
                             <div class="mb-3">
                                 <label for="descricao" class="form-label">Descrição do Produto</label>
                                 <textarea class="form-control" id="descricao" rows="2"
-                                    placeholder="Digite a descrição do produto"
-                                    v-model="productData.data.description"></textarea>
+                                    placeholder="Digite a descrição do produto" v-model="productDescription"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="preco" class="form-label">Preço do Produto</label>
                                 <input type="text" class="form-control" id="preco" placeholder="Digite o preço do produto"
-                                    v-model="productData.data.price">
+                                    v-model="productpPrice">
                             </div>
                             <div class="mb-3">
                                 <label for="quantidade" class="form-label">Quantidade em Estoque</label>
                                 <input type="text" class="form-control" id="quantidade"
-                                    placeholder="Digite a quantidade em estoque" v-model="productData.data.quantity">
+                                    placeholder="Digite a quantidade em estoque" v-model="productQuantity">
                             </div>
-                            <button type="button" class="btn btn-primary">{{ editingProductId ? 'Salvar' : 'Cadastrar'
-                            }}</button>
+                            <button type="button" class="btn btn-primary" @click="saveProduct">{{ editingProductId ?
+                                'Salvar' : 'Cadastrar' }}</button>
                         </form>
                     </div>
                 </div>
@@ -40,6 +39,7 @@
     </div>
 </template>
 <script>
+
 export default {
     props: {
         modalOpen: Boolean, // Defina modalOpen como uma prop
@@ -48,10 +48,34 @@ export default {
             type: Object
         }
     },
+    data() {
+        return [
 
+        ];
+    },
     methods: {
         closeModal() {
-            this.$emit('close-modal'); // Emita o evento personalizado
+            this.$emit('close-modal');
+            this.clearFields();
+        },
+
+        saveProduct() {
+            // Crie um objeto para armazenar os dados do produto
+            const productData = {
+                name: this.productName,
+                description: this.productDescription,
+                price: this.productpPrice,
+                quantity: this.productQuantity
+            };
+            // Emita um evento para notificar o componente pai sobre a ação de salvar
+            this.$emit('save-product', productData);
+        },
+
+        clearFields() {
+            this.productData.data.name = '';
+            this.productData.data.description = '';
+            this.productData.data.price = '';
+            this.productData.data.quantity = '';
         },
     },
 };

@@ -2,7 +2,8 @@
     <section class="intro">
         <div class="bg-image">
             <div class="mask d-flex align-items-center">
-                <productCard :modalOpen="modalOpen" @closeModal="closeModal" :productData="product" />
+                <productCard :modalOpen="modalOpen" @closeModal="closeModal" :productData="product"
+                    :editingProductId="ProductId" @save-product="SaveProduct" />
                 <div class="container">
                     <h1 class="text-center">Catálogo de Produtos</h1>
                     <div class="row justify-content-center mt-3">
@@ -69,6 +70,7 @@ export default defineComponent({
         const products = ref([]);
         const product = ref([])
         const modalOpen = ref(false);
+        const ProductId = ref();
 
         const openModal = () => {
             modalOpen.value = true;
@@ -76,6 +78,7 @@ export default defineComponent({
 
         const closeModal = () => {
             modalOpen.value = false;
+            ProductId.value = null;
         };
 
         const fetchProducts = () =>
@@ -86,14 +89,35 @@ export default defineComponent({
         const editProduct = (productId) => {
             axiosApi.get("/product/get/" + productId).then(res => {
                 product.value = res.data;
+                ProductId.value = productId;
                 modalOpen.value = true;
             });
             // Implemente a lógica para editar o produto com o ID `productId`
         };
 
+        const SaveProduct = (productData) => {
+            axiosApi.post("/product/create", productData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then(response => {
+                    console.log(response, 'deu boa');
+                })
+                .catch(error => {
+                    console.log('deu ruim');
+                });
+        }
+
         const removeProduct = (productId) => {
-            console.log(productId);
-            // Implemente a lógica para remover o produto com o ID `productId`
+            axiosApi.delete("/product/delete/" + productId)
+                .then(response => {
+                    console.log(response, 'produto removido');
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.log('erro ao remover produto');
+                });
         };
 
         onMounted(fetchProducts);
@@ -101,11 +125,13 @@ export default defineComponent({
         return {
             products,
             product,
+            ProductId,
             editProduct,
+            SaveProduct,
             removeProduct,
             openModal,
             modalOpen,
-            closeModal
+            closeModal,
         };
     },
 });
