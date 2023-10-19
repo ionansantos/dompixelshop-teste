@@ -59,11 +59,14 @@ cd dompizelshop
 ```
 cp .env .env_copy
 ```
-
+```
+docker compose exec app composer install
+```
 ```
 docker compose up -d --build  " se for o caso use sudo "
 ```
-
+```
+docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
 ... 
 
 ## Iniciando banco de dados
