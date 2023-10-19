@@ -1,7 +1,9 @@
 version: "3"
 services:
     app:
-        image: "ionansantos/dompixelshop:latest"
+        build:
+            context: .
+            dockerfile: Dockerfile
         container_name: app
         ports:
             - "80:80"
@@ -17,7 +19,7 @@ services:
         image: "mysql:8.0"
         container_name: database
         ports:
-            - "3306:3306"
+            - "3366:3306"
         environment:
             MYSQL_ROOT_HOST: "${DB_HOST}"
             MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
