@@ -5,12 +5,13 @@ ARG uid=1000
 
 WORKDIR /var/www
 
+RUN rm -vf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get install -y \
     libicu-dev \
     libpq-dev \
     zlib1g-dev \
-    unzip \
-    && rm -vf /var/lib/apt/lists/*
+    unzip 
 
 RUN apt-get update && apt-get install -y git
 
