@@ -1,13 +1,10 @@
-<h1>DomPixelShop</h1> 
-
-
+<h1>DomPixelShop</h1>
 
 <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
-> Status do Projeto: :heavy_check_mark: :warning: (finalizado)
 
-https://github.com/Shiva953/Shiva953/blob/main/assets/xyz.gif
+![](pxn.gif)
 
-## Descrição do projeto 
+## Descrição do projeto
 
 <p align="justify">
   Este projeto é uma aplicação web desenvolvida com o framework Laravel e a biblioteca Vue.js usando o Inertia.js, seguindo o padrão de arquitetura (MVC). O sistema tem 
@@ -22,22 +19,21 @@ O usuário pode adicionar novos produtos com os seguintes campos:
 Nome do produto (campo obrigatório)
 Descrição do produto
 Preço do produto (campo obrigatório)
-Quantidade em estoque (campo obrigatório) 
+Quantidade em estoque (campo obrigatório)
 
 :heavy_check_mark: Listagem de Produtos:
 Todos os produtos cadastrados são exibidos na página "Catálogo de Produtos".
-Os detalhes mostrados incluem nome, preço e quantidade em estoque. 
+Os detalhes mostrados incluem nome, preço e quantidade em estoque.
 
 :heavy_check_mark: Edição de Produtos:
 O usuário pode editar os dados de um produto existente.
-É possível atualizar os campos: nome, descrição, preço e quantidade em estoque.  
+É possível atualizar os campos: nome, descrição, preço e quantidade em estoque.
 
 :heavy_check_mark: Exclusão de Produtos:
-Os produtos existentes podem ser removidos do banco de dados.  
+Os produtos existentes podem ser removidos do banco de dados.
 
 :heavy_check_mark: Layout Responsivo:
 O front-end da aplicação é desenvolvido dentro do framework Laravel, com um layout simples e responsivo que se adapta a diferentes dispositivos, proporcionando uma experiência de usuário consistente em desktops e dispositivos móveis.
-
 
 ## Pré-requisitos
 
@@ -45,15 +41,16 @@ O front-end da aplicação é desenvolvido dentro do framework Laravel, com um l
 
 ...
 
-Liste todas as dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação 
+Liste todas as dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação
 
 ## Como rodar a aplicação :arrow_forward:
 
-No terminal, clone o projeto: 
+No terminal, clone o projeto:
 
 ```
 git clone https://github.com/ionansantos/dompixelshop-teste.git
 ```
+
 ```
 cd dompixelshop
 ```
@@ -72,41 +69,45 @@ docker compose up -d --build  " se for o caso use sudo "
 
 ```
 docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
-... 
+...
 
 php artisan key:generate
 ```
 
 ```
+
 ```
+
 ### para instalar as depedencias do npm
+
 ```
 npm install
 npm run build
 
 ```
+
 ## Iniciando banco de dados
+
 ```
  php artisan migrate
 ```
+
 ## os dados da aplicação são salvos em duas tabelas
 
-### Product: 
+### Product:
 
-|id|name|description|price|quantity|
-| -------- |-------- |-------- |-------- |-------- |
+| id  | name | description | price | quantity |
+| --- | ---- | ----------- | ----- | -------- |
 
-### Amount: 
+### Amount:
 
-|id|product_id|amount|
-| -------- |-------- |--
+| id  | product_id | amount |
+| --- | ---------- | ------ |
 
-
-... 
-
+...
 
 ## Resolvendo Problemas :exclamation:
-....
 
+....
 
 Copyright :copyright: 2023 - dompixelshop
