@@ -1,67 +1,105 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1>DomPIxelShop</h1> 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+
+
+> Status do Projeto: :heavy_check_mark: :warning: (desenvolvimento)
+
+
+## Descrição do projeto 
+
+<p align="justify">
+  Este projeto é uma aplicação web desenvolvida com o framework Laravel e a biblioteca Vue.js usando o Inertia.js, seguindo o padrão de arquitetura (MVC). O sistema tem 
+   como objetivo permitir o cadastro, listagem, edição e exclusão de produtos, além de fornecer uma interface de usuário simples e 
+   responsiva para desktop e dispositivos móveis.
 </p>
 
-## About Laravel
+## Funcionalidades
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+:heavy_check_mark: Cadastro de Produtos:
+O usuário pode adicionar novos produtos com os seguintes campos:
+Nome do produto (campo obrigatório)
+Descrição do produto
+Preço do produto (campo obrigatório)
+Quantidade em estoque (campo obrigatório) 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+:heavy_check_mark: Listagem de Produtos:
+Todos os produtos cadastrados são exibidos na página "Catálogo de Produtos".
+Os detalhes mostrados incluem nome, preço e quantidade em estoque. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+:heavy_check_mark: Edição de Produtos:
+O usuário pode editar os dados de um produto existente.
+É possível atualizar os campos: nome, descrição, preço e quantidade em estoque.  
 
-## Learning Laravel
+:heavy_check_mark: Exclusão de Produtos:
+Os produtos existentes podem ser removidos do banco de dados.  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+:heavy_check_mark: Layout Responsivo:
+O front-end da aplicação é desenvolvido dentro do framework Laravel, com um layout simples e responsivo que se adapta a diferentes dispositivos, proporcionando uma experiência de usuário consistente em desktops e dispositivos móveis.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Pré-requisitos
 
-## Laravel Sponsors
+:warning: [Docker](https://www.docker.com/)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+...
 
-### Premium Partners
+Liste todas as dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Como rodar a aplicação :arrow_forward:
 
-## Contributing
+No terminal, clone o projeto: 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+git clone https://github.com/ionansantos/dompixelshop-teste.git
+```
+cd dompizelshop
 
-## Code of Conduct
+cp .env .env_copy
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+docker compose up -d --build  " se for o caso use sudo "
 
-## Security Vulnerabilities
+... 
+ 
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Casos de Uso
 
-## License
+Explique com mais detalhes como a sua aplicação poderia ser utilizada. O uso de **gifs** aqui seria bem interessante. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# dompixelshop-teste
+Exemplo: Caso a sua aplicação tenha alguma funcionalidade de login apresente neste tópico os dados necessários para acessá-la.
+
+## JSON :floppy_disk:
+
+## os dados da aplicação são salvos em duas tabelas
+
+### Product: 
+
+|id|name|description|price|quantity|
+| -------- |-------- |-------- |-------- |-------- |
+
+### Amount:
+
+|id|product_id|amount|
+| -------- |-------- |
+... 
+
+## Iniciando/Configurando banco de dados
+
+Se for necessário configurar algo antes de iniciar o banco de dados insira os comandos a serem executados 
+)
+
+## Resolvendo Problemas :exclamation:
+
+Em [issues]() foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos. 
+
+
+Liste o time responsável pelo desenvolvimento do projeto
+
+| [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |  [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |  [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |
+| :---: | :---: | :---: 
+
+## Licença 
+
+The [MIT License]() (MIT)
+
+Copyright :copyright: Ano - Titulo do Projeto
