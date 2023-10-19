@@ -23,7 +23,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'price' => 'required|integer',
+            'price' => 'required|numeric|between:0.01,99999.99',
             'quantity' => 'required|integer',
         ];
     }
