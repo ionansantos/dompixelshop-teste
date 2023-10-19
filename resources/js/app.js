@@ -14,4 +14,4 @@ createInertiaApp({
         app.use(Toaster);
         app.mount(el);
     },
-});
+})

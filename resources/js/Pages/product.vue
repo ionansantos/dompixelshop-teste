@@ -3,7 +3,7 @@
         <div class="bg-image">
             <div class="mask d-flex align-items-center">
                 <productCard :modalOpen="modalOpen" @closeModal="closeModal" :productData="product"
-                    :editingProductId="ProductId" @save-product="SaveProduct" />
+                    :editingProductId="ProductId" @save-product="SaveProduct" :erroInput="erroInput" />
                 <div class="container">
                     <h1 class="text-center">Catálogo de Produtos</h1>
                     <div class="row justify-content-center mt-3">
@@ -72,6 +72,7 @@ export default defineComponent({
         const product = ref([])
         const modalOpen = ref(false);
         const ProductId = ref();
+        const erroInput = ref();
 
         const toaster = createToaster({ /* options */ });
 
@@ -109,7 +110,8 @@ export default defineComponent({
                             window.location.reload();
                         }, 2000);
                     }).catch(error => {
-                        toaster.error(error);
+                        erroInput.value = error.response.data.message
+                        toaster.error(`ocorreu um erro ao atualizar o produto`);
                     });
             } else {
                 axiosApi.post("/product/create", productData, {})
@@ -121,7 +123,8 @@ export default defineComponent({
                             window.location.reload();
                         }, 2000);
                     }).catch(error => {
-                        toaster.error(`não foi cadastrar o produto !`);
+                        erroInput.value = error.response.data.errors
+                        toaster.error(`Ops! Erro ao Cadastrar Produto`);
                     });
             }
         }
@@ -136,8 +139,7 @@ export default defineComponent({
                     }, 2000);
                 })
                 .catch(error => {
-                    toaster.error(`erro ao remover o produto !`);
-                    console.log(error);
+                    toaster.error(error.response.data.message);
                 });
         };
 
@@ -153,6 +155,7 @@ export default defineComponent({
             openModal,
             modalOpen,
             closeModal,
+            erroInput,
         };
     },
 });

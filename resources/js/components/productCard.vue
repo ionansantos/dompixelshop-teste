@@ -10,9 +10,11 @@
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="nome" class="form-label">Nome do Produto</label>
+                                <label for="nome" class="form-label">Nome do Produto <span
+                                        class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="nome" placeholder="Digite o nome do produto"
                                     v-model="productName" required>
+                                <p class="text-danger">{{ erroInput ? erroInput['name'][0] : '' }}</p>
                             </div>
                             <div class="mb-3">
                                 <label for="descricao" class="form-label">Descrição do Produto</label>
@@ -20,14 +22,18 @@
                                     placeholder="Digite a descrição do produto" v-model="productDescription"></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="preco" class="form-label">Preço do Produto</label>
-                                <input type="number" name="quantity" step="0.01" min="0.01" class="form-control" id="preco"
+                                <label for="preco" class="form-label">Preço do Produto <span
+                                        class="text-danger">*</span></label>
+                                <input name="quantity" class="form-control" id="preco"
                                     placeholder="Digite o preço do produto" v-model="productpPrice">
+                                <p class="text-danger">{{ erroInput ? erroInput['price'][0] : '' }}</p>
                             </div>
                             <div class="mb-3">
-                                <label for="quantidade" class="form-label">Quantidade em Estoque</label>
+                                <label for="quantidade" class="form-label">Quantidade em Estoque <span
+                                        class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="quantidade"
                                     placeholder="Digite a quantidade em estoque" v-model="productQuantity">
+                                <p class="text-danger">{{ erroInput ? erroInput['quantity'][0] : '' }}</p>
                             </div>
                             <button type="button" class="btn btn-primary" @click="saveProduct">{{ editingProductId ?
                                 'Salvar' : 'Cadastrar' }}</button>
@@ -45,6 +51,9 @@ export default {
         modalOpen: Boolean, // Defina modalOpen como uma prop
         editingProductId: Number,
         productData: {
+            type: Object
+        },
+        erroInput: {
             type: Object
         }
     },
@@ -124,10 +133,14 @@ export default {
             this.$emit('save-product', productData);
         },
         clearFields() {
-            this.this.productName.data.name = '';
-            this.productData.data.description = '';
-            this.productData.data.price = '';
-            this.productData.data.quantity = '';
+            this.productName = '';
+            this.productDescription = '';
+            this.productpPrice = '';
+            this.productQuantity = '';
+
+            this.erroInput.name = [];
+            this.erroInput.price = [];
+            this.erroInput.quantity = [];
         },
     },
 };
@@ -163,5 +176,9 @@ export default {
     right: 0;
     padding: 10px;
     cursor: pointer;
+}
+
+.text-danger {
+    font-size: 14px;
 }
 </style>
