@@ -12,7 +12,7 @@
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome do Produto</label>
                                 <input type="text" class="form-control" id="nome" placeholder="Digite o nome do produto"
-                                    v-model="productName">
+                                    v-model="productName" required>
                             </div>
                             <div class="mb-3">
                                 <label for="descricao" class="form-label">Descrição do Produto</label>

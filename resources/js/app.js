@@ -1,8 +1,8 @@
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import Toaster from "@meforma/vue-toaster";
-
 import store from './store/product'; // Importe a store do arquivo store.js
+import './bootstrap';
 
 createInertiaApp({
   resolve: name => {

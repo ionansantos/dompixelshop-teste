@@ -99,11 +99,7 @@ export default defineComponent({
         };
 
         const SaveProduct = (productData) => {
-            axiosApi.post("/product/create", productData, {
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
+            axiosApi.post("/product/create", productData, {})
                 .then(response => {
                     toaster.success('Produto cadastrado com sucesso!');
 
@@ -114,7 +110,7 @@ export default defineComponent({
                 })
 
                 .catch(error => {
-                    toaster.error(`erro ao cadastrar o produto !`);
+                    toaster.error(`não foi cadastrar o produto !`);
                     console.log(error, 'deu ruim');
                 });
         }
