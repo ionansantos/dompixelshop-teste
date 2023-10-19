@@ -4,6 +4,7 @@
 
 > Status do Projeto: :heavy_check_mark: :warning: (finalizado)
 
+https://github.com/Shiva953/Shiva953/blob/main/assets/xyz.gif
 
 ## Descrição do projeto 
 
@@ -87,9 +88,6 @@ npm run build
 ```
  php artisan migrate
 ```
-
-```
-```
 ## os dados da aplicação são salvos em duas tabelas
 
 ### Product: 
@@ -100,7 +98,7 @@ npm run build
 ### Amount:
 
 |id|product_id|amount|
-| -------- |-------- |
+| --------|-------- |
 
 
 ## Resolvendo Problemas :exclamation:
