@@ -72,6 +72,7 @@ docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
 ## Iniciando banco de dados
 
 ```
+```
  php artisan migrate
 ```
 
