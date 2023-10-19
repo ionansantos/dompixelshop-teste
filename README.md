@@ -53,7 +53,7 @@ No terminal, clone o projeto:
 git clone https://github.com/ionansantos/dompixelshop-teste.git
 ```
 ```
-cd dompizelshop
+cd dompixelshop
 ```
 
 ```
@@ -77,12 +77,9 @@ docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
  php artisan migrate
 ```
 
-
-... 
  
 ```
 
-## JSON :floppy_disk:
 
 ## os dados da aplicação são salvos em duas tabelas
 
