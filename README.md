@@ -106,6 +106,11 @@ npm run build
 
 ## Resolvendo Problemas :exclamation:
 
+```
+[x] -  ajustes na loǵica de edição e cadastro de produto 
+[x] -  ajustes de responsividade
+[x] -  ajustes de validacao formRequest
+[x] -  ajustes de conexao do docker   
 ....
 
 Copyright :copyright: 2023 - dompixelshop
