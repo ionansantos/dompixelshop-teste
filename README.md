@@ -41,8 +41,6 @@ O front-end da aplicação é desenvolvido dentro do framework Laravel, com um l
 
 ...
 
-Liste todas as dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação
-
 ## Como rodar a aplicação :arrow_forward:
 
 No terminal, clone o projeto:
