@@ -50,44 +50,35 @@ git clone https://github.com/ionansantos/dompixelshop-teste.git
 ```
 
 ```
-cd dompixelshop
+cd dompixelshop-teste
 ```
 
 ```
-cp .env .env_copy
+cp .env.example .env
 ```
 
 ```
-docker compose exec app composer install
+
+docker compose up -d --build 
 ```
 
+
 ```
-docker compose up -d --build  " se for o caso use sudo "
+docker compose exec app composer install  
 ```
 
 ```
 docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
 ...
 
-php artisan key:generate
+docker exec app php artisan key:generate
 ```
 
-```
-
-```
-
-### para instalar as depedencias do npm
-
-```
-npm install
-npm run build
-
-```
 
 ## Iniciando banco de dados
 
 ```
- php artisan migrate
+ docker exec app php artisan migrate
 ```
 
 ## os dados da aplicação são salvos em duas tabelas
@@ -103,6 +94,15 @@ npm run build
 | --- | ---------- | ------ |
 
 ...
+
+### para instalar as depedencias do npm
+
+```
+npm install
+npm run build
+```
+
+acesse em : http://localhost
 
 ## Resolvendo Problemas :exclamation:
 
