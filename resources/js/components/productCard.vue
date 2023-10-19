@@ -21,8 +21,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="preco" class="form-label">Preço do Produto</label>
-                                <input type="text" class="form-control" id="preco" placeholder="Digite o preço do produto"
-                                    v-model="productpPrice">
+                                <input type="number" name="quantity" step="0.01" min="0.01" class="form-control" id="preco"
+                                    placeholder="Digite o preço do produto" v-model="productpPrice">
                             </div>
                             <div class="mb-3">
                                 <label for="quantidade" class="form-label">Quantidade em Estoque</label>
@@ -49,9 +49,58 @@ export default {
         }
     },
     data() {
-        return [
-
-        ];
+        return {
+            productName: '',
+            productDescription: '',
+            productpPrice: '',
+            productQuantity: ''
+        };
+    },
+    computed: {
+        // Computed properties para associar o v-model aos valores corretos
+        computedProductName: {
+            get() {
+                return this.productData ? this.productData.data.name : this.productName;
+            },
+            set(value) {
+                this.productName = value;
+            }
+        },
+        computedProductDescription: {
+            get() {
+                return this.productData ? this.productData.data.description : this.productDescription;
+            },
+            set(value) {
+                this.productDescription = value;
+            }
+        },
+        computedProductpPrice: {
+            get() {
+                return this.productData ? this.productData.price : this.productpPrice;
+            },
+            set(value) {
+                this.productpPrice = value;
+            }
+        },
+        computedProductQuantity: {
+            get() {
+                return this.productData ? this.productData.quantity : this.productQuantity;
+            },
+            set(value) {
+                this.productQuantity = value;
+            }
+        }
+    },
+    watch: {
+        editingProductId(newProductId) {
+            if (newProductId) {
+                // Atualize as computed properties com base na prop productData
+                this.computedProductName = this.productData.data.name;
+                this.computedProductDescription = this.productData.data.description;
+                this.computedProductpPrice = this.productData.data.price;
+                this.computedProductQuantity = this.productData.data.quantity;
+            }
+        }
     },
     methods: {
         closeModal() {
@@ -67,12 +116,15 @@ export default {
                 price: this.productpPrice,
                 quantity: this.productQuantity
             };
+
+            if (this.editingProductId) {
+                productData.id = this.editingProductId;
+            }
             // Emita um evento para notificar o componente pai sobre a ação de salvar
             this.$emit('save-product', productData);
         },
-
         clearFields() {
-            this.productData.data.name = '';
+            this.this.productName.data.name = '';
             this.productData.data.description = '';
             this.productData.data.price = '';
             this.productData.data.quantity = '';

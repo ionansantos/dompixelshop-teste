@@ -44,7 +44,7 @@ class ProductController extends Controller
         return response()->json(["data" => $product], Response::HTTP_OK);
     }
 
-    public function update(ProductRequest $request, $id): JsonResponse
+    public function update(Request $request, $id): JsonResponse
     {
         $product = $this->service->updateProduct($request, $id);
         return response()->json(["message" => "product updated successfully", "data" => $product], Response::HTTP_OK);

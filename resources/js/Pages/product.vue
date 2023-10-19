@@ -99,20 +99,31 @@ export default defineComponent({
         };
 
         const SaveProduct = (productData) => {
-            axiosApi.post("/product/create", productData, {})
-                .then(response => {
-                    toaster.success('Produto cadastrado com sucesso!');
+            if (productData.id) {
+                axiosApi.post("/product/update/" + productData.id)
+                    .then(response => {
+                        toaster.success('Produto atualizado com sucesso!');
 
-                    setTimeout(() => {
-                        toaster.clear();
-                        window.location.reload();
-                    }, 2000);
-                })
+                        setTimeout(() => {
+                            toaster.clear();
+                            window.location.reload();
+                        }, 2000);
+                    }).catch(error => {
+                        toaster.error(error);
+                    });
+            } else {
+                axiosApi.post("/product/create", productData, {})
+                    .then(response => {
+                        toaster.success('Produto cadastrado com sucesso!');
 
-                .catch(error => {
-                    toaster.error(`não foi cadastrar o produto !`);
-                    console.log(error, 'deu ruim');
-                });
+                        setTimeout(() => {
+                            toaster.clear();
+                            window.location.reload();
+                        }, 2000);
+                    }).catch(error => {
+                        toaster.error(`não foi cadastrar o produto !`);
+                    });
+            }
         }
 
         const removeProduct = (productId) => {
