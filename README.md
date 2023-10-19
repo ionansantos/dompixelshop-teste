@@ -65,14 +65,17 @@ docker compose up -d --build  " se for o caso use sudo "
 ```
 
 ... 
- 
+
+## Iniciando banco de dados
+
+```
+ php artisan migrate
 ```
 
-## Casos de Uso
 
-Explique com mais detalhes como a sua aplicação poderia ser utilizada. O uso de **gifs** aqui seria bem interessante. 
-
-Exemplo: Caso a sua aplicação tenha alguma funcionalidade de login apresente neste tópico os dados necessários para acessá-la.
+... 
+ 
+```
 
 ## JSON :floppy_disk:
 
@@ -87,25 +90,10 @@ Exemplo: Caso a sua aplicação tenha alguma funcionalidade de login apresente n
 
 |id|product_id|amount|
 | -------- |-------- |
-... 
 
-## Iniciando/Configurando banco de dados
-
-Se for necessário configurar algo antes de iniciar o banco de dados insira os comandos a serem executados 
-)
 
 ## Resolvendo Problemas :exclamation:
+....
 
-Em [issues]() foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos. 
 
-
-Liste o time responsável pelo desenvolvimento do projeto
-
-| [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |  [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |  [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |
-| :---: | :---: | :---: 
-
-## Licença 
-
-The [MIT License]() (MIT)
-
-Copyright :copyright: Ano - Titulo do Projeto
+Copyright :copyright: 2023 - dompixelshop
