@@ -2,6 +2,7 @@
 
 
 
+<img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
 > Status do Projeto: :heavy_check_mark: :warning: (finalizado)
 
 https://github.com/Shiva953/Shiva953/blob/main/assets/xyz.gif
@@ -95,7 +96,7 @@ npm run build
 |id|name|description|price|quantity|
 | -------- |-------- |-------- |-------- |-------- |
 
-### Usuários: 
+### Amount: 
 
 |id|product_id|amount|
 | -------- |-------- |--
