@@ -60,6 +60,7 @@
 import { defineComponent, onMounted, ref } from 'vue';
 import axiosApi from '../plugin/axios';
 import productCard from '../components/productCard.vue'
+import { createToaster } from "@meforma/vue-toaster";
 
 export default defineComponent({
     name: "product",
@@ -71,6 +72,8 @@ export default defineComponent({
         const product = ref([])
         const modalOpen = ref(false);
         const ProductId = ref();
+
+        const toaster = createToaster({ /* options */ });
 
         const openModal = () => {
             modalOpen.value = true;
@@ -102,21 +105,32 @@ export default defineComponent({
                 }
             })
                 .then(response => {
-                    console.log(response, 'deu boa');
+                    toaster.success('Produto cadastrado com sucesso!');
+
+                    setTimeout(() => {
+                        toaster.clear();
+                        window.location.reload();
+                    }, 2000);
                 })
+
                 .catch(error => {
-                    console.log('deu ruim');
+                    toaster.error(`erro ao cadastrar o produto !`);
+                    console.log(error, 'deu ruim');
                 });
         }
 
         const removeProduct = (productId) => {
             axiosApi.delete("/product/delete/" + productId)
                 .then(response => {
-                    console.log(response, 'produto removido');
-                    window.location.reload();
+                    toaster.success(`produto removido com sucesso !`);
+                    setTimeout(() => {
+                        toaster.clear();
+                        window.location.reload();
+                    }, 2000);
                 })
                 .catch(error => {
-                    console.log('erro ao remover produto');
+                    toaster.error(`erro ao remover o produto !`);
+                    console.log(error);
                 });
         };
 
