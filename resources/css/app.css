@@ -1,0 +1,28 @@
+
+body, html{
+    height: 100% !important;
+  }
+.intro {
+  height: 100%;
+}
+
+.mask {
+  height: 600px;
+}
+@media (max-width: 600px) {
+    .mask {
+        height: 680px;
+    }
+    .btn {
+        margin-top: 4px;
+    }
+  }
+
+  @media (min-with: 600px) and (max-width: 1050px) {
+    .mask {
+        height: 640px;
+    }
+
+  }
+
+

@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
 
         $products = $this->service->findAll();
-        return response()->json(["data"=>$products], Response::HTTP_OK);
+        return response()->json($products, 200);
 
     }
 

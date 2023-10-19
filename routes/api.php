@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('products', [ProductController::class, 'index']);
+Route::get('product', [ProductController::class, 'index']);
 Route::post('product/create', [ProductController::class, 'store']);
 Route::get('product/get/{id}', [ProductController::class, 'show']);
 Route::post('product/update/{id}', [ProductController::class, 'update']);

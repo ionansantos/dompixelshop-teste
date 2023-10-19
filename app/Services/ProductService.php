@@ -19,18 +19,9 @@ class ProductService {
 
     public function new($data) {
         if ($data) {
-            // Crie o produto
             $product = $this->productRepository->new($data);
-            // Certifique-se de que 'quantity' esteja presente nos dados
-            if (isset($data['quantity'])) {
-                // Recupere o ID do produto após a criação
-                $product = $this->productRepository->new($data);
                 $productID = $product->id;
-
-                // Use o amountRepository para criar o registro de quantidade
                 return $this->amountRepository->createAmount($productID, $data['quantity']);
-
-            }
 
             return true;
         }
