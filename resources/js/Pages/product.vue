@@ -44,6 +44,9 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <p v-if="!this.products[0]" class="text-center">
+                                            Nenhum produto cadastrado.
+                                        </p>
                                     </div>
                                 </div>
                             </div>

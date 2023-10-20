@@ -32,7 +32,7 @@
                                 <label for="quantidade" class="form-label">Quantidade em Estoque <span
                                         class="text-danger">*</span></label>
                                 <input type="number" class="form-control" id="quantidade"
-                                    placeholder="Digite a quantidade em estoque" v-model="productQuantity">
+                                    placeholder="Digite a quantidade em estoque" v-model="productQuantity" min="0">
                                 <p class="text-danger">{{ erroInput ? erroInput['quantity'][0] : '' }}</p>
                             </div>
                             <button type="button" class="btn btn-primary" @click="saveProduct">{{ editingProductId ?
